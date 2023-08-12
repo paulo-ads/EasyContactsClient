@@ -5,6 +5,8 @@ import { faUserPen, faUserSlash, faUsersGear } from '@fortawesome/free-solid-svg
 import { faAddressCard } from '@fortawesome/free-regular-svg-icons';
 import axios from 'axios';
 import { Link, useParams } from 'react-router-dom';
+import apiUrl from "../apiURL";
+
 
 export default function Home() {
 
@@ -17,12 +19,12 @@ export default function Home() {
     },[])
 
     const loadContacts = async () => {
-        const result = await axios.get("http://localhost:8080/contacts");
+        const result = await axios.get(`${apiUrl}/contacts`);
         setContacts(result.data);
     }
 
     const deleteContact = async (id) => {
-        await axios.delete(`http://localhost:8080/contact/${id}`);
+        await axios.delete(`${apiUrl}/contact/${id}`);
         loadContacts();
     }
 

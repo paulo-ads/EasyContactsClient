@@ -4,6 +4,7 @@ import { Link, useParams } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleUser } from '@fortawesome/free-solid-svg-icons';
 import './Contact.css';
+import apiUrl from "../apiURL";
 
 
 export default function ViewContact() {
@@ -20,7 +21,7 @@ export default function ViewContact() {
     },[])
 
     const loadContact = async () => {
-        const result = await axios.get(`http://localhost:8080/contact/${id}`)
+        const result = await axios.get(`${apiUrl}/contact/${id}`)
         setContact(result.data)
     }
 

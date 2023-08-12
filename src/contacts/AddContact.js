@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 import './Contact.css'
+import apiUrl from "../apiURL";
 
 export default function AddContact() {
 
@@ -20,7 +21,7 @@ export default function AddContact() {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    await axios.post("http://localhost:8080/add-contact", contact)
+    await axios.post(`${apiUrl}/add-contact`, contact)
     navigate("/")
 
   }

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link, useNavigate, useParams } from 'react-router-dom';
+import apiUrl from "../apiURL";
 
 export default function EditContact() {
 
@@ -21,12 +22,12 @@ export default function EditContact() {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    await axios.put(`http://localhost:8080/contact/${id}`, contact);
+    await axios.put(`${apiUrl}/contact/${id}`, contact);
     navigate("/");
   };
 
   const loadContact = async () => {
-    const result = await axios.get(`http://localhost:8080/contact/${id}`);
+    const result = await axios.get(`${apiUrl}/contact/${id}`);
     setContact(result.data);
   };
 
